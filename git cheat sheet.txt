@@ -12,7 +12,14 @@ git add <file> :- stage file
 
 git add . :- stage all files/folders
 
-git rm --cached <filename> :- unstage file
+to unstage files after adding them:
+
+git reset head <folder/filename> or 
+
+git reset <filename> or
+
+git rm --cached <filename>
+
 
 git add *.txt :- Add using wildcards
 
