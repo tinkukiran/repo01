@@ -20,6 +20,10 @@ git reset <filename> or
 
 git rm --cached <filename>
 
+to go back and change the file as that of last commit after staging:
+
+git checkout -- <filename> :- use it before the commit and after the add
+
 
 git add *.txt :- Add using wildcards
 
