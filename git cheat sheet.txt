@@ -53,5 +53,17 @@ see the branches and your current branch:
 
 git branch
 
+push and pull are for local -> remote ad vice versa
+
+merge is for within the repo (local or remote)
+
+git push origin can be executed from any local branch (master or child branches)
+But, git push origin will only execute if it has a upstream remote branch
+If child local branch doesn't exist in the remote then you have to specify the branch name you want to push the changes to :- git push origin master
+
+git pull origin can be executed from any local branch (master or child branches)
+But, git pull origin will only execute if it has a downstream remote branch
+If child local branch doesn't exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
 
 
+jbjjhb
