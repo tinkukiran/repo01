@@ -20,6 +20,8 @@ git reset <filename> or
 
 git rm --cached <filename>
 
+git rm -r --cached <foldername> :- use recursive option rm -r to empve all the folders and files in the current directory.
+
 to go back and change the file as that of last commit after staging:
 
 git checkout -- <filename> :- use it before the commit and after the add
