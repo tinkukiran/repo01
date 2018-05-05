@@ -1,0 +1,36 @@
+git version help :- check git version
+
+git clone <remote repo>  :- Cloning remote repo in the current local folder
+Example:
+git clone https://github.com/tinkukiran/repo01.git
+
+Check File/Folder status:
+git status :- check status
+
+
+git add <file> :- stage file
+
+git add . :- stage all files/folders
+
+git rm --cached <filename> :- unstage file
+
+git add *.txt :- Add using wildcards
+
+git log :- see the logs of all commits
+
+git remote add origin <new repo URL use SSL/HTTPS> - add a origin repo from local to pull/push/fetch
+Example:
+git remote add origin https://github.com/try-git/try_git.git - example
+
+try-git - new repo
+
+after modifying the file and before adding(staging), check the diff:
+
+git diff --staged
+
+before committing the changes , we can know what is the difference:
+
+git diff head
+
+
+
