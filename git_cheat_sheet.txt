@@ -36,7 +36,7 @@ git reset <filename> or
 
 git rm --cached <filename>
 
-git rm -r --cached <foldername> :- use recursive option rm -r to empve all the folders and files in the current directory.
+git rm -r --cached <foldername> :- use recursive option rm -r to remove all the folders and files in the current directory.
 
 to go back and change the file as that of last commit after staging:
 
@@ -55,7 +55,7 @@ try-git - new repo
 
 after modifying the file and before adding(staging), check the diff:
 
-git diff --staged
+git diff --staged.
 
 before committing the changes , we can know what is the difference:
 
