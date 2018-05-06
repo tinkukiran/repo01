@@ -1,0 +1,91 @@
+git version help :- check git version
+
+git clone <remote repo>  :- Cloning remote repo in the current local folder
+Example:
+git clone https://github.com/tinkukiran/repo01.git
+
+Or
+
+git init (in any folder) :- to start a local repo in that folder(remember this is local repo not present in any server yet)
+
+Check File/Folder status:
+git status :- check status
+
+
+git add <file> :- stage file
+
+git add . :- stage all files/folders
+
+git . :- add all files in the directory
+
+git *.txt :- add all text files in the directory
+
+git "*.txt" :- adds all the text files in the whole repo
+
+git add --all :- add or remove all files in the directory
+
+git add docs\*.txt :- adds all text files in the docs folder
+
+git add docs\ :- adds all the files and sub folders in the docs folder. 
+
+to unstage files after adding them:
+
+git reset head <folder/filename> or 
+
+git reset <filename> or
+
+git rm --cached <filename>
+
+git rm -r --cached <foldername> :- use recursive option rm -r to remove all the folders and files in the current directory.
+
+to go back and change the file as that of last commit after staging:
+
+git checkout -- <filename> :- use it before the commit and after the add
+
+git add *.txt :- Add using wildcards
+
+git log :- see the logs of all commits
+
+git remote add origin <new repo URL use SSL/HTTPS> - add a origin repo from local to pull/push/fetch
+Example:
+git remote add origin https://github.com/try-git/try_git.git - example
+
+try-git - new repo
+
+after modifying the file and before adding(staging), check the diff:
+
+git diff --staged.
+
+before committing the changes , we can know what is the difference:
+
+git diff head
+
+To know the diff between the staged and the previous commit:
+
+git diff
+
+Create a new branch in local repo:
+
+git branch <branch name>
+
+see the branches and your current branch:
+
+git branch
+
+push and pull are for local -> remote ad vice versa
+
+merge is for within the repo (local or remote)
+
+git push origin can be executed from any local branch (master or child branches)
+But, git push origin will only execute if it has a upstream remote branch
+If child local branch doesn't exist in the remote then you have to specify the branch name you want to push the changes to :- git push origin master
+
+git pull origin can be executed from any local branch (master or child branches)
+But, git pull origin will only execute if it has a downstream remote branch
+If child local branch doesn't exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
+
+Delete a local branch:
+
+git branch -d <branch name>
+
+if there are conflicts, then you can either merge the changes to the master branch or use -d -f options or just -D which includes both -d -f options and delete it.
