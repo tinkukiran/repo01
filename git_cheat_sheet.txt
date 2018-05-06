@@ -4,6 +4,10 @@ git clone <remote repo>  :- Cloning remote repo in the current local folder
 Example:
 git clone https://github.com/tinkukiran/repo01.git
 
+Or
+
+git init (in any folder) :- to start a local repo in that folder(remember this is local repo not present in any server yet)
+
 Check File/Folder status:
 git status :- check status
 
@@ -11,6 +15,18 @@ git status :- check status
 git add <file> :- stage file
 
 git add . :- stage all files/folders
+
+git . :- add all files in the directory
+
+git *.txt :- add all text files in the directory
+
+git "*.txt" :- adds all the text files in the whole repo
+
+git add --all :- add or remove all files in the directory
+
+git add docs\*.txt :- adds all text files in the docs folder
+
+git add docs\ :- adds all the files and sub folders in the docs folder. 
 
 to unstage files after adding them:
 
