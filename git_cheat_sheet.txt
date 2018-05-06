@@ -61,6 +61,10 @@ before committing the changes , we can know what is the difference:
 
 git diff head
 
+To know the diff between the staged and the previous commit:
+
+git diff
+
 Create a new branch in local repo:
 
 git branch <branch name>
