@@ -68,6 +68,10 @@ Create a new branch in local repo:
 
 git branch <branch name>
 
+Delete a branch
+
+git branch -d <branch_name>
+
 see the branches and your current branch:
 
 git branch
