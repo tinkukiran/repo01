@@ -2,7 +2,9 @@ git version help :- check git version
 
 git clone <remote repo>  :- Cloning remote repo in the current local folder
 Example:
-git clone https://github.com/tinkukiran/repo01.git
+git clone https://github.com/tinkukiran/repo01.git <Creates the same folder as in remore repo>
+
+git clone https://github.com/tinkukiran/repo01.git custom-folder <To name your own folder>
 
 Or
 
@@ -10,6 +12,10 @@ git init (in any folder) :- to start a local repo in that folder(remember this i
 
 Check File/Folder status:
 git status :- check status
+
+To check the remote:
+
+git remote -v (get origins for both fetch and push)
 
 
 git add <file> :- stage file
@@ -34,9 +40,25 @@ git reset head <folder/filename> or
 
 git reset <filename> or
 
+To Untrack Files:
+
 git rm --cached <filename>
 
 git rm -r --cached <foldername> :- use recursive option rm -r to remove all the folders and files in the current directory.
+
+
+To Revert after commiting(Do these before pushing the code to the remote repo):
+
+git reset --soft HEAD^  :- Undo Last commit; Put the changes back to staging; Use this to still keep ur changes in the staging
+
+git reset --hard HEAD^ :- Blow away all the changes; undo last commit and all changes; Remove the changes from staging also
+
+git reset --hard HEAD^^ :- To undo last 2 commits and all changes
+
+git commit --amend :- Change/Add to the last commit
+ 
+git commit --amend -m "New Message" : Change/Add to the last commit with a new message.
+
 
 to go back and change the file as that of last commit after staging:
 
@@ -64,6 +86,38 @@ To know the diff between the staged and the previous commit:
 
 git diff
 
+
+push and pull are for local -> remote ad vice versa
+
+git push -u origin master (one time to remember our source and target)
+
+git push (to not mention the source and target everytime)
+
+origin : remote branch/repo (whtever you add while adding the remote)
+master : local branch/repo
+
+To Add new remotes:
+
+git remote add <name(origin/but anyname)> <address(clone url)>
+
+To remove remotes:
+
+git remote rm <remote name>
+
+To push to remotes
+
+git push -u <name(origin)> <branch(usually master)>
+
+merge is for within the repo (local or remote)
+
+git push origin can be executed from any local branch (master or child branches)
+But, git push origin will only execute if it has a upstream remote branch
+If child local branch doesn't exist in the remote then you have to specify the branch name you want to push the changes to :- git push origin master
+
+git pull origin can be executed from any local branch (master or child branches)
+But, git pull origin will only execute if it has a downstream remote branch
+If child local branch doesn't exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
+
 Create a new branch in local repo:
 
 git branch <branch name>
@@ -76,20 +130,36 @@ see the branches and your current branch:
 
 git branch
 
-push and pull are for local -> remote ad vice versa
-
-merge is for within the repo (local or remote)
-
-git push origin can be executed from any local branch (master or child branches)
-But, git push origin will only execute if it has a upstream remote branch
-If child local branch doesn't exist in the remote then you have to specify the branch name you want to push the changes to :- git push origin master
-
-git pull origin can be executed from any local branch (master or child branches)
-But, git pull origin will only execute if it has a downstream remote branch
-If child local branch doesn't exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
-
 Delete a local branch:
 
 git branch -d <branch name>
 
 if there are conflicts, then you can either merge the changes to the master branch or use -d -f options or just -D which includes both -d -f options and delete it.
+
+Switching to a branch:
+
+git checkout <branchname>
+
+Create and Switch to a new branch:
+
+git checkout -b <branchname>
+
+git add branchname/filename.txt :- to add the file in that branch
+
+Merge Branches:
+
+git merge <Branchname>
+
+
+Vi Commands:
+
+j - down
+k - up
+h- left
+l - right
+esc - leave mode
+i - insert mode
+:wq - save and wuit
+:q! - cancel and quit
+
+
