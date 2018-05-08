@@ -141,7 +141,7 @@ Delete a remote origin:
 
 git remote origin :<remote branch>
 
-If a remot ebranch is deleted by other team member , and you are trying to push your code to that branch, It errors out:
+If a remote branch is deleted by other team member , and you are trying to push your code to that branch, It errors out:
 
 git remote prune origin (stale branches are branesh that do not exist in the remote repo anymore and they have to be deleted/pruned)
 
