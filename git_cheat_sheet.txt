@@ -121,6 +121,10 @@ Create a new branch in local repo:
 
 git branch <branch name>
 
+Create a new remote(someone else's) branch in local repo from shared repo:
+
+git checkout --track origin/newsletter
+
 Delete a branch
 
 git branch -d <branch_name>
@@ -186,6 +190,14 @@ git checkout tag
 To push the tags to the remote
 
 git push --tags
+
+Diff between Fetch and Pull:
+
+Fetch : syncs up the remote repo with local repo with the updated changes.
+
+Pull: syncs up the remote repo with local repo with the updated changes and also merges your changes in the HEAD.
+
+Push: to make your changes available in the remote repo just use git push origin master <branch name>
 
 
 Vi Commands:
