@@ -123,8 +123,16 @@ git branch <branch name>
 
 Create a new remote(someone else's) branch in local repo from shared repo:
 
-git checkout --track origin/newsletter
+git checkout --track -b newsletter origin/newsletter (track)
 
+git checkout --no-track -b newsletter origin/newsletter (Don't Track)
+
+git branch --set-upstream-to origin/newsletter (setting the tracking: push and fetch)
+
+git branch --unset-upstream (execute in that branch to unsert the tracking: push and fetch)
+
+
+ 
 Delete a branch
 
 git branch -d <branch_name>
