@@ -86,7 +86,6 @@ To know the diff between the staged and the previous commit:
 
 git diff
 
-
 push and pull are for local -> remote ad vice versa
 
 git push -u origin master (one time to remember our source and target)
@@ -126,9 +125,25 @@ Delete a branch
 
 git branch -d <branch_name>
 
-see the branches and your current branch:
+see the local branches and your current branch:
 
 git branch
+
+see the remote branches in the repo:
+
+git branch -r
+
+see the local and remote origin configured:
+
+git remote show origin
+
+Delete a remote origin:
+
+git remote origin :<remote branch>
+
+If a remot ebranch is deleted by other team member , and you are trying to push your code to that branch, It errors out:
+
+git remote prune origin (stale branches are branesh that do not exist in the remote repo anymore and they have to be deleted/pruned)
 
 Delete a local branch:
 
@@ -149,6 +164,28 @@ git add branchname/filename.txt :- to add the file in that branch
 Merge Branches:
 
 git merge <Branchname>
+
+Tags:
+
+to freeze a committed state and tga it as a verison.
+
+Used mostly for the release versions.
+
+List all the tags
+
+git tag
+
+to create a new tag:
+
+git tag -a <tag name> -m <Tag Desc>
+
+To checkout to a tag:
+
+git checkout tag
+
+To push the tags to the remote
+
+git push --tags
 
 
 Vi Commands:
