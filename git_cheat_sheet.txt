@@ -10,6 +10,10 @@ Or
 
 git init (in any folder) :- to start a local repo in that folder(remember this is local repo not present in any server yet)
 
+To save the credentials to avoid entering every time:
+
+git config --global credential.helper wincred
+
 Check File/Folder status:
 git status :- check status
 
