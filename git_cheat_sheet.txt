@@ -211,6 +211,102 @@ Pull: syncs up the remote repo with local repo with the updated changes and also
 
 Push: to make your changes available in the remote repo just use git push origin master <branch name>
 
+Use Rebase if you want to merge commits from a branch to master branch:
+
+Best example is : if your local repo branch is 2 commits ahead of your master branch ,
+then you can rebase so that head becomes clean and committed.
+
+git rebase
+
+git rebase --continue (run this after resolving the conflict)
+
+git rebase --skip (run this if you want to skip a conflict patch)
+
+git rebase --abort (run this to completely abort the rebase operation)
+
+Colorizing the history log:
+
+git config --global color.ui true (emphasizes the commit SHA key to bold)
+
+LOGS:
+
+git log --pretty oneline (puts the log in one liners)
+
+git log --pretty format:"%h %ad- %s [%an]"
+
+%ad - Author date
+%an - author name
+%h - SHA Hash
+%s - subject
+%d - ref names
+
+git log --oneline -p
+
+git log --oneline --stat
+
+git log --online --graph
+
+git log --until=1.minute.ago
+
+git log --since=1.day.ago
+
+git log --since=1.week.ago
+
+git log --since=1.hour.ago
+
+git log --since=1.month.ago --until=2.weeks.ago
+
+git log --since=2000-01-01 --until=2012-12-21
+
+
+DIFFS
+
+git diff
+
+git diff head
+
+git diff HEAD^
+
+git diff HEAD^^
+
+git diff HEAD~5
+
+git diff HEAD^..HEAD
+
+git diff SHA key -1 .. SHA key-2
+
+git log --oneline
+
+47ccbdsa
+56ffcdgg
+
+git diff 47ccbdsa..56ffcdgg
+
+git diff master bird (branch name)
+
+git diff --since=1.week.ago --until=1.minute.ago
+
+BLAMES
+
+git blame index.txt --date short
+
+Excludes and .gitgnore?
+
+Aliases
+
+git config --global alias.mylog \
+git config --global alias.lol \
+
+git mylog
+
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.co checkout
+git config --global alias.ci commit
+
+git st
+
+
 
 Vi Commands:
 
