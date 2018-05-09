@@ -211,12 +211,23 @@ Pull: syncs up the remote repo with local repo with the updated changes and also
 
 Push: to make your changes available in the remote repo just use git push origin master <branch name>
 
+MERGE:
+
+git checkout <branchname>
+git merge master
+
+condense the above commands in one liner:
+
+git merge master <branch> : Merge master branch into feature branch
+
 Use Rebase if you want to merge commits from a branch to master branch:
 
 Best example is : if your local repo branch is 2 commits ahead of your master branch ,
 then you can rebase so that head becomes clean and committed.
 
 git rebase
+
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing
 
 git rebase --continue (run this after resolving the conflict)
 
