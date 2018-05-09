@@ -210,7 +210,7 @@ Fetch : syncs up the remote repo with local repo with the updated changes.
 Pull: syncs up the remote repo with local repo with the updated changes and also merges your changes in the HEAD.
 
 Push: to make your changes available in the remote repo just use git push origin master <branch name>
-
+q
 MERGE:
 
 git checkout <branchname>
