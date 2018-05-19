@@ -2,14 +2,24 @@ git version help :- check git version
 
 git clone <remote repo>  :- Cloning remote repo in the current local folder
 Example:
-git clone https://github.com/tinkukiran/repo01.git
+git clone https://github.com/tinkukiran/repo01.git <Creates the same folder as in remore repo>
+
+git clone https://github.com/tinkukiran/repo01.git custom-folder <To name your own folder>
 
 Or
 
 git init (in any folder) :- to start a local repo in that folder(remember this is local repo not present in any server yet)
 
+To save the credentials to avoid entering every time:
+
+git config --global credential.helper wincred
+
 Check File/Folder status:
 git status :- check status
+
+To check the remote:
+
+git remote -v (get origins for both fetch and push)
 
 
 git add <file> :- stage file
@@ -34,9 +44,25 @@ git reset head <folder/filename> or
 
 git reset <filename> or
 
+To Untrack Files:
+
 git rm --cached <filename>
 
 git rm -r --cached <foldername> :- use recursive option rm -r to remove all the folders and files in the current directory.
+
+
+To Revert after commiting(Do these before pushing the code to the remote repo):
+
+git reset --soft HEAD^  :- Undo Last commit; Put the changes back to staging; Use this to still keep ur changes in the staging
+
+git reset --hard HEAD^ :- Blow away all the changes; undo last commit and all changes; Remove the changes from staging also
+
+git reset --hard HEAD^^ :- To undo last 2 commits and all changes
+
+git commit --amend :- Change/Add to the last commit
+ 
+git commit --amend -m "New Message" : Change/Add to the last commit with a new message.
+
 
 to go back and change the file as that of last commit after staging:
 
@@ -64,19 +90,26 @@ To know the diff between the staged and the previous commit:
 
 git diff
 
-Create a new branch in local repo:
-
-git branch <branch name>
-
-Delete a branch
-
-git branch -d <branch_name>
-
-see the branches and your current branch:
-
-git branch
-
 push and pull are for local -> remote ad vice versa
+
+git push -u origin master (one time to remember our source and target)
+
+git push (to not mention the source and target everytime)
+
+origin : remote branch/repo (whtever you add while adding the remote)
+master : local branch/repo
+
+To Add new remotes:
+
+git remote add <name(origin/but anyname)> <address(clone url)>
+
+To remove remotes:
+
+git remote rm <remote name>
+
+To push to remotes
+
+git push -u <name(origin)> <branch(usually master)>
 
 merge is for within the repo (local or remote)
 
@@ -88,8 +121,218 @@ git pull origin can be executed from any local branch (master or child branches)
 But, git pull origin will only execute if it has a downstream remote branch
 If child local branch doesn't exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
 
+Create a new branch in local repo:
+
+git branch <branch name>
+
+Create a new remote(someone else's) branch in local repo from shared repo:
+
+git checkout --track -b newsletter origin/newsletter (track is default)
+
+git checkout --no-track -b newsletter origin/newsletter (Don't Track)
+
+git branch --set-upstream-to origin/newsletter (setting the tracking: push and fetch)
+
+git branch --unset-upstream (execute in that branch to unsert the tracking: push and fetch)
+
+
+ 
+Delete a branch
+
+git branch -d <branch_name>
+
+see the local branches and your current branch:
+
+git branch
+
+see the remote branches in the repo:
+
+git branch -r
+
+see the local and remote origin configured:
+
+git remote show origin
+
+Delete a remote origin:
+
+git remote origin :<remote branch>
+
+If a remote branch is deleted by other team member , and you are trying to push your code to that branch, It errors out:
+
+git remote prune origin (stale branches are branesh that do not exist in the remote repo anymore and they have to be deleted/pruned)
+
 Delete a local branch:
 
 git branch -d <branch name>
 
 if there are conflicts, then you can either merge the changes to the master branch or use -d -f options or just -D which includes both -d -f options and delete it.
+
+Switching to a branch:
+
+git checkout <branchname>
+
+Create and Switch to a new branch:
+
+git checkout -b <branchname>
+
+git add branchname/filename.txt :- to add the file in that branch
+
+Merge Branches:
+
+git merge <Branchname>
+
+Tags:
+
+to freeze a committed state and tga it as a verison.
+
+Used mostly for the release versions.
+
+List all the tags
+
+git tag
+
+to create a new tag:
+
+git tag -a <tag name> -m <Tag Desc>
+
+To checkout to a tag:
+
+git checkout tag
+
+To push the tags to the remote
+
+git push --tags
+
+Diff between Fetch and Pull:
+
+Fetch : syncs up the remote repo with local repo with the updated changes.
+
+Pull: syncs up the remote repo with local repo with the updated changes and also merges your changes in the HEAD.
+
+Push: to make your changes available in the remote repo just use git push origin master <branch name>
+q
+MERGE:
+
+git checkout <branchname>
+git merge master
+
+condense the above commands in one liner:
+
+git merge master <branch> : Merge master branch into feature branch
+
+Use Rebase if you want to merge commits from a branch to master branch:
+
+Best example is : if your local repo branch is 2 commits ahead of your master branch ,
+then you can rebase so that head becomes clean and committed.
+
+git rebase
+
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing
+
+git rebase --continue (run this after resolving the conflict)
+
+git rebase --skip (run this if you want to skip a conflict patch)
+
+git rebase --abort (run this to completely abort the rebase operation)
+
+Colorizing the history log:
+
+git config --global color.ui true (emphasizes the commit SHA key to bold)
+
+LOGS:
+
+git log --pretty oneline (puts the log in one liners)
+
+git log --pretty format:"%h %ad- %s [%an]"
+
+%ad - Author date
+%an - author name
+%h - SHA Hash
+%s - subject
+%d - ref names
+
+git log --oneline -p
+
+git log --oneline --stat
+
+git log --online --graph
+
+git log --until=1.minute.ago
+
+git log --since=1.day.ago
+
+git log --since=1.week.ago
+
+git log --since=1.hour.ago
+
+git log --since=1.month.ago --until=2.weeks.ago
+
+git log --since=2000-01-01 --until=2012-12-21
+
+
+DIFFS
+
+git diff
+
+git diff head
+
+git diff HEAD^
+
+git diff HEAD^^
+
+git diff HEAD~5
+
+git diff HEAD^..HEAD
+
+git diff SHA key -1 .. SHA key-2
+
+git log --oneline
+
+47ccbdsa
+56ffcdgg
+
+git diff 47ccbdsa..56ffcdgg
+
+git diff master bird (branch name)
+
+git diff --since=1.week.ago --until=1.minute.ago
+
+BLAMES
+
+git blame index.txt --date short
+
+Excludes and .gitgnore?
+
+Aliases
+
+git config --global alias.mylog \
+git config --global alias.lol \
+
+git mylog
+
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.co checkout
+git config --global alias.ci commit
+
+Checkout and track all the remote branches
+
+
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+git fetch --all
+git pull --all
+
+
+
+Vi Commands:
+
+j - down
+k - up
+h- left
+l - right
+esc - leave mode
+i - insert mode
+:wq - save and wuit
+:q! - cancel and quit
+
+
