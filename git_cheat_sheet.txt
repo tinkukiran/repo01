@@ -23,7 +23,6 @@ git remote -v (get origins for both fetch and push)
 
 
 git add <file> :- stage file
-
 git add . :- stage all files/folders
 
 git . :- add all files in the directory
@@ -115,17 +114,17 @@ merge is for within the repo (local or remote)
 
 git push origin can be executed from any local branch (master or child branches)
 But, git push origin will only execute if it has a upstream remote branch
-If child local branch doesn't exist in the remote then you have to specify the branch name you want to push the changes to :- git push origin master
+If child local branch doesnt exist in the remote then you have to specify the branch name you want to push the changes to :- git push origin master
 
 git pull origin can be executed from any local branch (master or child branches)
 But, git pull origin will only execute if it has a downstream remote branch
-If child local branch doesn't exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
+If child local branch doesnt exist in the remote then you have to specify the branch name you want to pull the changes to :- git pull origin master
 
 Create a new branch in local repo:
 
 git branch <branch name>
 
-Create a new remote(someone else's) branch in local repo from shared repo:
+Create a new remote(someone else) branch in local repo from shared repo:
 
 git checkout --track -b newsletter origin/newsletter (track is default)
 
@@ -159,7 +158,7 @@ git remote origin :<remote branch>
 
 If a remote branch is deleted by other team member , and you are trying to push your code to that branch, It errors out:
 
-git remote prune origin (stale branches are branesh that do not exist in the remote repo anymore and they have to be deleted/pruned)
+git remote prune origin (stale branches are braneches that do not exist in the remote repo anymore and they have to be deleted/pruned)
 
 Delete a local branch:
 
@@ -336,3 +335,22 @@ i - insert mode
 :q! - cancel and quit
 
 
+Steps to add a local branch
+
+create a folder with branch name
+
+git init
+
+git remote add origin <remote URL>
+
+git fetch origin
+or
+git fetch origin/branch name
+
+
+git remote -r
+
+
+git remote show origin
+
+git checkout --track -b feature/APDSIH-1126-modify-the-db-password-scheduler origin/feature/APDSIH-1126-modify-the-db-password-scheduler
