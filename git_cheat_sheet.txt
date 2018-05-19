@@ -10,9 +10,8 @@ Or
 
 git init (in any folder) :- to start a local repo in that folder(remember this is local repo not present in any server yet)
 
+git config --global credential.helper wincred :- Password Caching
 To save the credentials to avoid entering every time:
-
-git config --global credential.helper wincred
 
 Check File/Folder status:
 git status :- check status
@@ -182,7 +181,7 @@ git merge <Branchname>
 
 Tags:
 
-to freeze a committed state and tga it as a verison.
+to freeze a committed state and tag it as a verison.
 
 Used mostly for the release versions.
 
