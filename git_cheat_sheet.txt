@@ -182,7 +182,7 @@ git merge <Branchname>
 
 Tags:
 
-to freeze a committed state and tga it as a verison.
+to freeze a committed state and tag it as a verison.
 
 Used mostly for the release versions.
 
